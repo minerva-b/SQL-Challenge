@@ -1,0 +1,1 @@
+-- Creating queries for all tables:
