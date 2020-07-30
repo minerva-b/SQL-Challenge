@@ -10,12 +10,12 @@ emp_no int FK >- Dept_Emp.emp_no
 
 Dept_Emp
 -
-emp_no int PK
+emp_no int FK >- Employees.emp_no
 dept_no varchar 
 
 Employees
 -
-emp_no int FK >- Dept_Emp.emp_no
+emp_no int PK 
 emp_title_id varchar FK >- Titles.title_id
 birth_date date 
 first_name varchar 
