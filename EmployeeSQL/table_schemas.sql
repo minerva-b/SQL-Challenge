@@ -9,7 +9,16 @@ CREATE TABLE Departments (
 SELECT * FROM Departments;
 
 
--- 2. Employees Table
+-- 2. Titles Table
+CREATE TABLE Titles (
+	title_id VARCHAR(10) PRIMARY KEY NOT NULL,
+	title VARCHAR(20) NOT NULL
+);
+-- View Titles Table
+SELECT * FROM Titles;
+
+
+-- 3. Employees Table
 CREATE TABLE Employees (
 	emp_no INT PRIMARY KEY NOT NULL,
 	emp_title_id VARCHAR(20) NOT NULL,
@@ -17,21 +26,11 @@ CREATE TABLE Employees (
 	first_name VARCHAR(30) NOT NULL,
 	last_name VARCHAR(30) NOT NULL,
 	sex VARCHAR(10) NOT NULL,
-	hire_date DATE NOT NULL
+	hire_date DATE NOT NULL,
+	FOREIGN KEY (emp_title_id) REFERENCES Titles(title_id)
 );
 -- View Employees Table
 SELECT * FROM Employees;
--- -- Updating Employees Table to add FK now that Titles Table is created ***
--- UPDATE Employees WHERE FOREIGN KEY (emp_title_id) REFERENCES Titles(emp_title_id)
-
-
--- 3. Titles Table
-CREATE TABLE Titles (
-	title_id VARCHAR(10) PRIMARY KEY NOT NULL,
-	title VARCHAR(20) NOT NULL
-);
--- View Titles Table
-SELECT * FROM Titles;
 
 
 -- 4. Dept_Manager Table
@@ -63,3 +62,10 @@ CREATE TABLE Salaries (
 -- View Salaries Table
 SELECT * FROM Salaries;
 
+-- -- Commands that I need when/if I need to fix errors:
+-- -- DROP TABLE if exists Departments CASCADE;
+-- -- DROP TABLE if exists Titles CASCADE;
+-- -- DROP TABLE if exists Employees CASCADE;
+-- -- DROP TABLE if exists Dept_Manager CASCADE;
+-- -- DROP TABLE if exists Dept_Emp CASCADE;
+-- -- DROP TABLE if exists Salaries CASCADE;
