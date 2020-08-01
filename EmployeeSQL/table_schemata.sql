@@ -37,6 +37,7 @@ SELECT * FROM Employees;
 CREATE TABLE Dept_Manager (
 	dept_no VARCHAR(20) NOT NULL,
 	emp_no INT NOT NULL,
+	PRIMARY KEY (emp_no),
 	FOREIGN KEY (emp_no) REFERENCES Employees(emp_no)
 );
 -- View Dept_Manager Table
@@ -47,6 +48,7 @@ SELECT * FROM Dept_Manager;
 CREATE TABLE Dept_Emp (
 	emp_no INT NOT NULL,
 	dept_no VARCHAR(20) NOT NULL,
+	PRIMARY KEY (emp_no, dept_no),
 	FOREIGN KEY (emp_no) REFERENCES Employees(emp_no)
 );
 -- View Dept_Emp Table
@@ -57,15 +59,16 @@ SELECT * FROM Dept_Emp;
 CREATE TABLE Salaries (
 	emp_no INT NOT NULL,
 	salary INT NOT NULL,
+	PRIMARY KEY (emp_no),
 	FOREIGN KEY (emp_no) REFERENCES Employees(emp_no)
 );
 -- View Salaries Table
 SELECT * FROM Salaries;
 
 -- -- Commands that I need when/if I need to fix errors:
--- -- DROP TABLE if exists Departments CASCADE;
--- -- DROP TABLE if exists Titles CASCADE;
--- -- DROP TABLE if exists Employees CASCADE;
--- -- DROP TABLE if exists Dept_Manager CASCADE;
--- -- DROP TABLE if exists Dept_Emp CASCADE;
--- -- DROP TABLE if exists Salaries CASCADE;
+-- DROP TABLE if exists Departments CASCADE;
+-- DROP TABLE if exists Titles CASCADE;
+-- DROP TABLE if exists Employees CASCADE;
+-- DROP TABLE if exists Dept_Manager CASCADE;
+-- DROP TABLE if exists Dept_Emp CASCADE;
+-- DROP TABLE if exists Salaries CASCADE;
